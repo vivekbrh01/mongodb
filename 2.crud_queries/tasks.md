@@ -49,7 +49,7 @@ db.articles.update({"title":"Node"}, {$set: {"author": {"name":"ABCD"}}});
 ```
 10. rename details field to description from articles collection. 
 ```js
-db.articles.update({"title": "Node"}, {$set : {"description": "Backend Backend"}});
+db.articles.update({"title": "Node"}, {$rename : {"details": "description"}});
 ```
 11. Add additional tag in a specific document.
 ```js
