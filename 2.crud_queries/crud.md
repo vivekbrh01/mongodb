@@ -111,4 +111,3 @@ We have `updateOne` and `updateMany` methods as well.
   // To remove above document
   db.articles.remove({_id: 23});
   ```
-

@@ -24,4 +24,3 @@ Exercises listed in this repo are..
 * [ ] Add your mentor as a reviewer on the PR.
 * [ ] The assigned mentor will review the exercise and pass feedback.
 * [ ] Once the mentor merges the PR to `master` branch, you are done with this exercise. Yay!
-
