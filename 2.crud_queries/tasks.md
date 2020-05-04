@@ -32,7 +32,7 @@ db.articles.find({_id: ObjectId("5ea8600bba80c3c0ecb11403")});
 ```
 6. Find documents using title and author's name field.
 ```js
-db.articles.find({}, {"title": "", "name": ""});
+db.articles.find({title: "", "author.name": ""});
 ```
 7. Find document using a specific tag.
 ```js
@@ -61,11 +61,11 @@ db.articles.update({"title": "Node"}, {$push: {tag: 'nodemon'}});
 db.articles.update({"title" : "Node"}, {$set : {"tag": 'changed tag'}});
 
 
-db.articles.update({"title" : "Node"}, {"tag": 'changed tag'}});
+db.articles.update({"title" : "Node"}, {$push : {"tag": "HTML"}});
 ```
   - Write the differences here ?
 
-When we use {$set} it updates without changing the original data. When we update it without using {$set} we change the entire data for that field.
+When we use `{$set}` it updates the entire field. However when we use `{$push}` we update field without changing the pre-existing data.
 
 13. Increment an auhtor's age by 5.  
 
@@ -83,7 +83,7 @@ Use sample.js data for below queries.
 
 1. Find all males who play cricket.
 ```js
-db.users.find({gender: "Male"}, {sports: "cricket"});
+db.users.find({gender: "Male", sports: "cricket"});
 ```
 2. Update user with extra golf field in sports array whose name is "Steve Ortega".
 ```js
@@ -91,7 +91,7 @@ db.users.update({name: "Steve Ortega"}, {$push:{sports: "golf"}});
 ```
 3. Find all users who play either 'football' or 'cricket'.
 ```js
-db.users.find({sports: "cricket"}, {sports: "football"});
+db.users.find({sports: {$in: ["football", "cricket"]}});
 ```
 4. Find all users whose name includes 'ri' in their name.
 ```js
